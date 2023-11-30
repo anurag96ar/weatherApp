@@ -13,7 +13,7 @@ const App = () => {
 
   const handleChange = async (event) => {
     setSearchTerm(event.target.value);
-    getCityWiseLocation()
+    
 
   };
 
@@ -103,9 +103,9 @@ const App = () => {
           onChange={handleChange}
           className="outlined-input"
         />
-        <span className="search-icon">
-          <FaSearch />
-        </span>
+        <button className="search-button" onClick={()=>getCityWiseLocation()}>
+        <FaSearch />
+      </button>
       </div>
       <div style={{ marginBottom: '30px' }}></div>
       {isSearch && showSearchResults()}
