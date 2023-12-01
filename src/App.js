@@ -3,6 +3,7 @@ import './App.css';
 import moment from 'moment';
 import myLogoGif from './img/temp.gif';
 import { FaSearch } from 'react-icons/fa';
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 const App = () => {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -95,7 +96,7 @@ const App = () => {
       </header>
       <img src={myLogoGif} className="app_logo_gif" alt="logo" />
 
-      <div className="search">
+      {/* <div className="search">
         <input
           type="text"
           placeholder="Search by City "
@@ -106,7 +107,28 @@ const App = () => {
         <button className="search-button" onClick={()=>getCityWiseLocation()}>
         <FaSearch />
       </button>
-      </div>
+      </div> */}
+      <Container className="mt-5">
+      <Row>
+        <Col sm={4}>
+          <Form className="d-flex">
+            <Form.Control
+              type="text"
+              placeholder="Search by City "
+              value={searchTerm}
+              onChange={handleChange}
+              className="me-2 rounded-pill"
+              aria-label="Search"
+            />
+            <Button className="rounded-pill" variant="outline-primary"
+            onClick={()=>getCityWiseLocation()}>
+              Search
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
+       
       <div style={{ marginBottom: '30px' }}></div>
       {isSearch && showSearchResults()}
     </div>
